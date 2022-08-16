@@ -14,7 +14,7 @@
     "vscode": "^1.70.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages"
   ],
   "activationEvents": [
     "onLanguage:makefile"
