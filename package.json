@@ -1,6 +1,6 @@
 {
   "name": "vscode-makefile-outliner",
-  "displayName": "Makefile Outliner VS Code Extension",
+  "displayName": "Makefile Outliner",
   "description": "Support outline for Makefile",
   "version": "0.1.2",
   "publisher": "tadayosi",
