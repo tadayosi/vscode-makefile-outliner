@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 class MakefileSymbolProvider implements vscode.DocumentSymbolProvider {
-  private readonly targetPattern = /^([^#\s]+):/;
+  private readonly targetPattern = /^([^#\s]+)\s*:[^=]*$/;
 
   provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken)
     : Thenable<vscode.SymbolInformation[]> {
