@@ -1,6 +1,11 @@
 import * as vscode from 'vscode';
 
 class MakefileSymbolProvider implements vscode.DocumentSymbolProvider {
+  private readonly specialTargets = [
+    '.PHONY', '.SUFFIXES', '.DEFAULT', '.PRECIOUS', '.INTERMEDIATE', '.NOTINTERMEDIATE',
+    '.SECONDARY', '.SECONDEXPANSION', '.DELETE_ON_ERROR', '.IGNORE', '.LOW_RESOLUTION_TIME',
+    '.SILENT', '.EXPORT_ALL_VARIABLES', '.NOTPARALLEL', '.ONESHELL', '.POSIX',
+  ];
   private readonly targetPattern = /^([^#\s]+)\s*:[^=]*$/;
 
   provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken)
@@ -13,7 +18,8 @@ class MakefileSymbolProvider implements vscode.DocumentSymbolProvider {
         const match = line.text.match(this.targetPattern);
         if (match) {
           const target = match[1];
-          if (target === '.PHONY') {
+          // exclude special targets from outline
+          if (this.specialTargets.includes(target)) {
             continue;
           }
           symbols.push(new vscode.SymbolInformation(
