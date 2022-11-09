@@ -2,7 +2,7 @@
   "name": "vscode-makefile-outliner",
   "displayName": "Makefile Outliner",
   "description": "Support outline for Makefile",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publisher": "tadayosi",
   "author": "Tadayoshi Sato",
   "license": "Apache-2.0",
